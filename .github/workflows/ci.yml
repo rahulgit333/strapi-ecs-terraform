@@ -20,7 +20,7 @@ jobs:
     - uses: aws-actions/amazon-ecr-login@v2
       id: login
 
-    - run: docker build -t strapi:${{ github.sha }} ./app
+    - run: docker build -t strapi:${{ github.sha }} ./my-strapi-app-ecs
 
     - run: |
         docker tag strapi:${{ github.sha }} \
