@@ -4,7 +4,7 @@ data "aws_ami" "ecs" {
 
   filter {
     name = "name"
-    values = ["amzn2-ami-ecs-hvm-*"]
+    values = ["amzn2-ami-ecs-hvm-*-x86_64-ebs"]
   }
 }
 
@@ -12,7 +12,7 @@ resource "aws_launch_template" "ecs" {
   name_prefix = "ecs-template"
 
   image_id = data.aws_ami.ecs.id
-  instance_type = "t3.small"
+  instance_type = "t3.micro"
 
   vpc_security_group_ids = [aws_security_group.ecs.id]
 
